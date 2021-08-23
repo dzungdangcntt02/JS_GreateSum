@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script lang="javascript">
+      alert("Phép cộng giữa hai số nguyên dương");
+      var num1 = prompt("Nhập số thứ nhất:")
+      var num2 = prompt("Nhập số thứ hai:")
+      var getResult = (a, b) => {
+        let str_a = a.toString();
+        let str_b = b.toString();
+        let len_a = str_a.length;
+        let len_b = str_b.length;
+
+        var reverseString = (string_s) => {
+          let tmp = "";
+          for (let i = string_s.length - 1; i >= 0; i--) {
+            tmp += string_s[i];
+          }
+          return tmp;
+        }
+
+        var fullfillLength = () => {
+          if (len_a > len_b) {
+            let x = len_a - len_b;
+            let tmp = "";
+            for (let i = 0; i < x; i++) {
+              tmp += '0';
+            }
+            str_b = tmp + str_b;
+            return len_a;
+          } else if (len_a == len_b) {
+            return len_a;
+          } 
+          else if (len_a < len_b) {
+            let x = len_b - len_a;
+            let tmp = "";
+            for (let i = 0; i < x; i++) {
+              tmp += '0';
+            }
+            str_a = tmp + str_a;
+            return len_b;
+          }
+        }
+        
+        let sameLength = fullfillLength();
+        var calculate = () => {
+          let accel = 0;
+          let result = "";
+          for (let i = sameLength - 1; i >= 1; i--) {
+            let getInt_a = parseInt(str_a[i]);
+            let getInt_b = parseInt(str_b[i]);
+            let sum_getIntA_get_IntB = getInt_a + getInt_b + accel;
+            let needyPush = sum_getIntA_get_IntB % 10;
+            result += String(needyPush);
+            accel = parseInt(sum_getIntA_get_IntB / 10);
+          }
+          let getFinalInt_a = parseInt(str_a[0]);
+          let getFinalInt_b = parseInt(str_b[0]);
+          let sum_getFinalIntA_getFinalIntB = getFinalInt_a + getFinalInt_b + accel;
+          let needyFinalPush = String(sum_getFinalIntA_getFinalIntB);
+          needyFinalPush = reverseString(needyFinalPush);
+          result += needyFinalPush;
+          result = reverseString(result);
+          return result;
+        }
+        let result = calculate();
+        return result;
+      }
+
+      var x = getResult(num1, num2);
+      document.write("Phép tính như sau: ");
+      document.write('<br/>');
+      document.write(num1);
+      document.write('<br/>');
+      document.write('+');
+      document.write('<br/>');
+      document.write(num2);
+      document.write('<br/>');
+      document.write('=');
+      document.write('<br/>');
+      document.write(x);
+    </script>
+  </head>
+  <body>
+    
+  </body> 
+</html>

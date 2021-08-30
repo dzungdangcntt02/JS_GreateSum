@@ -5,6 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+  </head>
+  <body>
+    <p style = "text-align: center">
+      Phép tính như sau:
+    </p>
+    <br>
+    <p id="num1" style = "text-align: right">
+    </p>
+    <br>
+    <p style = "text-align: right">+</p>
+    <br>
+    <p id="num2" style = "text-align: right">
+    </p>
+    <br>
+    <p style = "text-align: right">---------------------------------------------------------------------------------------------------------</p>
+    <br>
+    <p id="result" style = "text-align: right">
+
+    </p>
     <script lang="javascript">
       alert("Phép cộng giữa hai số nguyên dương");
       var num1 = prompt("Nhập số thứ nhất:")
@@ -70,22 +89,11 @@
         let result = calculate();
         return result;
       }
-
       var x = getResult(num1, num2);
-      document.write("Phép tính như sau: ");
-      document.write('<br/>');
-      document.write(num1);
-      document.write('<br/>');
-      document.write('+');
-      document.write('<br/>');
-      document.write(num2);
-      document.write('<br/>');
-      document.write('=');
-      document.write('<br/>');
-      document.write(x);
+
+      document.getElementById("num1").innerHTML = output1;
+      document.getElementById("num2").innerHTML = output2;
+      document.getElementById("result").innerHTML = x;
     </script>
-  </head>
-  <body>
-    
   </body> 
 </html>
